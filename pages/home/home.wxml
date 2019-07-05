@@ -1,0 +1,84 @@
+<!--pages/home/home.wxml-->
+<view>
+  <text>pages/home/home.wxml</text>
+  <!-- 自定义属性 -->
+  <view data-phone="{{phone}}">
+  </view>
+
+  <!-- wx:if / hidden -->
+  <view>
+    <image src="{{src}}" wx:if="{{flag}}"></image>
+    <text hidden='{{flag}}'>wh1901daydayup</text>
+    <view>
+      {{flag?"我去武汉":"我去马尼拉"}}
+    </view>
+    <switch checked="{{flag}}" bindchange="changeFlag" />
+  </view>
+
+  <!-- wx:for 遍历循环 -->
+  <view wx:for="{{array}}" wx:key="{{index}}">
+    {{item.message}} --- {{index}}
+  </view>
+
+  <!-- 九九乘法表 -->
+  <view wx:if="{{flag}}" wx:for="{{num}}" wx:for-item="i" wx:for-index="id" wx:key="{{id}}">
+    <view wx:for="{{num}}" wx:for-item="j" wx:for-index="idx" wx:key="{{idx}}">
+      <view wx:if="{{i <= j}}">
+        {{i}}*{{j}}={{i*j}}
+      </view>
+    </view>
+  </view>
+
+  <!-- 事件绑定 bind  /  catch -->
+  <view bindtap='getParent'>
+    <view data-msg="Are you ok" data-demo="demo111" bindtap='getSome'>小程序事件绑定</view>
+    <input bindchange='getValue'></input>
+    <view>
+      冒泡事件：当一个组件上的事件被触发后，该事件会向父节点传递。 bind
+    </view>
+    <view bindtap='childTwo'>
+      非冒泡事件：当一个组件上的事件被触发后，该事件不会向父节点传递。catch
+    </view>
+    <view catchtap='childOne'>
+      bind事件绑定不会阻止冒泡事件向上冒泡，catch事件绑定可以阻止冒泡事件向上冒泡。
+    </view>
+  </view>
+
+  <!-- rpx -->
+  <view class='box'>
+    rpx 测试
+  </view>
+
+  <!-- 弹框,轻提示,actionsheet -->
+  <view>
+    <button type="warn" bindtap='openModal'>打开弹框</button>
+  </view>
+  <view>
+    <button type="warn" bindtap='openAction'>打开action sheet</button>
+  </view>
+
+  <!-- 小程序模板 内部引入 user模板-->
+  <template name="users">
+    <view>
+      <view>users --- users </view>
+      <view>name === {{name}}</view>
+      <view>age === {{age}}</view>
+    </view>
+  </template>
+  <template is="users" data="{{...userData}}" />
+
+  <!-- 小程序模板 外部引入 点赞模板-->
+  <import src="/tpls/like.wxml" />
+  <template is="like" data="{{...likeData}}" />
+
+  <!-- 小程序模板 外部引入 actionsheet模板-->
+  <import src="/tpls/actionsheet.wxml" />
+  <template is="actionsheet" data="{{ ...actionData   }}" />
+  <view>
+    <button type="primary" bindtap="openMyAction">打开action sheet </button>
+  </view>
+
+  <!-- 小程序模板 外部引入 登录模板 -->
+  <import src="/tpls/signin.wxml" />
+  <template is="signin" data="{{ ...modalData   }}" />
+</view>

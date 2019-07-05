@@ -1,0 +1,14 @@
+/* pages/my/my.wxss */
+
+.g-img, .swiper {
+  width: 100%;
+  height: 400rpx;
+}
+
+.inp {
+  border: 2rpx solid #ccc;
+}
+
+#myVideo {
+  width: 100%;
+}

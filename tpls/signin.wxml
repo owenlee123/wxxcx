@@ -1,0 +1,11 @@
+<template name="signin">
+  <modal wx:if="{{modalHidden}}" title="登录" cancelText="我不登录" confirmText="马上登录" bindcancel="loginFail" bindconfirm="login">
+    <label class="label">
+      <input placeholder='请输入手机号' type="tel" bindchange="getMobile" value="{{mobile}}"></input>
+    </label>
+    <label class="label">
+      <input placeholder='请输入验证码' type="number" bindchange="getCode" value="{{code}}"></input>
+    </label>
+    <button type="warn" size="mini" bindtap='fetchCode'>获取验证码</button>
+  </modal>
+</template>

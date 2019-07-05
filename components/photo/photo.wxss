@@ -1,0 +1,5 @@
+/* components/photo/photo.wxss */
+
+.img {
+  width: 100%;
+}

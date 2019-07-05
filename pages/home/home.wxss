@@ -1,0 +1,13 @@
+/* pages/home/home.wxss */
+
+.box {
+  width: 200rpx;
+  height: 200rpx;
+  background: yellowgreen;
+}
+
+.label {
+  display: block;
+  border: 1rpx solid #ccc;
+  margin: 10rpx;
+}

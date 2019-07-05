@@ -1,0 +1,7 @@
+<template name="like">
+  <view>
+    <view>点赞的模板</view>
+    <view>who === {{who}}</view>
+    <view>count === {{count}}</view>
+  </view>
+</template>
